@@ -54,8 +54,9 @@ myisam-recover-options  = BACKUP
 #
 # Log all queries
 # Be aware that this log type is a performance killer.
-# general_log_file        = /var/log/mysql/query.log
-# general_log             = 1
+general_log_file        = /var/log/mysql/query.log
+general_log             = 1
+
 #
 # Error log - should be very few entries.
 #
