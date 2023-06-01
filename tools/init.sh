@@ -1,23 +1,23 @@
 #!/bin/bash
 
+HOME="/home/isucon"
 cd /home/isucon || exit
 
-# nginx
-if [ ! -e "/home/isucon/etc/nginx/nginx.conf" ]; then
-  mkdir -p /home/isucon/etc/nginx/
-  sudo cp /etc/nginx/nginx.conf /home/isucon/etc/nginx/nginx.conf
-  ln -sf /home/isucon/etc/nginx/nginx.conf /etc/nginx/nginx.conf
-  git add /home/isucon/etc/nginx/nginx.conf
-  git commit -m "backup nginx.conf"
-  git push
-fi
+# $1: service name
+# $2: file path
+function init_setting_file() {
+  echo "init $1"
 
-# mysql
-if [ ! -e "/home/isucon/etc/mysql/mysql.conf.d/mysqld.cnf" ]; then
-  mkdir -p /home/isucon/etc/mysql/mysql.conf.d
-  sudo cp /etc/mysql/mysql.conf.d/mysqld.cnf /home/isucon/etc/mysql/mysql.conf.d/mysqld.cnf
-  ln -sf /home/isucon/etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
-  git add /home/isucon/etc/mysql/mysql.conf.d/mysqld.cnf
-  git commit -m "backup mysqld.cnf"
-  git push
-fi
+  if [ ! -e "$HOME$2" ]; then
+    mkdir -p "$HOME$2"
+    sudo cp "$2" "$HOME$2"
+    mv "$2" "$2.bkp"
+    ln -sf "$HOME$2" "$2"
+    git add "$HOME$2"
+    git commit -m "backup $1 conf"
+    git push
+  fi
+}
+
+init_setting_file "mysql" "/etc/mysql/mysql.conf.d/mysqld.cnf"
+init_setting_file "nginx" "/etc/nginx/nginx.conf"
