@@ -1,0 +1,137 @@
+❯ ab -c 1 -t 30 http://35.76.111.5/
+This is ApacheBench, Version 2.3 <$Revision: 1901567 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 35.76.111.5 (be patient)
+Finished 154 requests
+
+
+Server Software:        nginx/1.18.0
+Server Hostname:        35.76.111.5
+Server Port:            80
+
+Document Path:          /
+Document Length:        34185 bytes
+
+Concurrency Level:      1
+Time taken for tests:   30.084 seconds
+Complete requests:      154
+Failed requests:        0
+Total transferred:      5321778 bytes
+HTML transferred:       5264490 bytes
+Requests per second:    5.12 [#/sec] (mean)
+Time per request:       195.351 [ms] (mean)
+Time per request:       195.351 [ms] (mean, across all concurrent requests)
+Transfer rate:          172.75 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       22   28  42.1     24     534
+Processing:   160  167   3.1    167     175
+Waiting:      137  142   2.3    142     150
+Total:        183  195  42.0    191     698
+
+Percentage of the requests served within a certain time (ms)
+  50%    191
+  66%    193
+  75%    193
+  80%    194
+  90%    196
+  95%    198
+  98%    199
+  99%    307
+ 100%    698 (longest request)
+
+private-isu/logs on  main on ☁️  (ap-northeast-1) took 2s
+❯ ab -c 2 -t 30 http://35.76.111.5/
+This is ApacheBench, Version 2.3 <$Revision: 1901567 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 35.76.111.5 (be patient)
+Finished 250 requests
+
+
+Server Software:        nginx/1.18.0
+Server Hostname:        35.76.111.5
+Server Port:            80
+
+Document Path:          /
+Document Length:        34185 bytes
+
+Concurrency Level:      2
+Time taken for tests:   30.015 seconds
+Complete requests:      250
+Failed requests:        0
+Total transferred:      8639250 bytes
+HTML transferred:       8546250 bytes
+Requests per second:    8.33 [#/sec] (mean)
+Time per request:       240.122 [ms] (mean)
+Time per request:       120.061 [ms] (mean, across all concurrent requests)
+Transfer rate:          281.08 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       22   25   6.2     24     119
+Processing:   166  214   8.8    213     266
+Waiting:      142  189   8.6    189     241
+Total:        194  239   8.4    238     289
+
+Percentage of the requests served within a certain time (ms)
+  50%    238
+  66%    239
+  75%    241
+  80%    242
+  90%    246
+  95%    249
+  98%    263
+  99%    284
+ 100%    289 (longest request)
+
+private-isu/logs on  main on ☁️  (ap-northeast-1) took 30s
+private-isu/logs on  main on ☁️  (ap-northeast-1) took 30s
+❯ ab -c 4 -t 30 http://35.76.111.5/
+This is ApacheBench, Version 2.3 <$Revision: 1901567 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 35.76.111.5 (be patient)
+Finished 251 requests
+
+
+Server Software:        nginx/1.18.0
+Server Hostname:        35.76.111.5
+Server Port:            80
+
+Document Path:          /
+Document Length:        34185 bytes
+
+Concurrency Level:      4
+Time taken for tests:   30.032 seconds
+Complete requests:      251
+Failed requests:        0
+Total transferred:      8673807 bytes
+HTML transferred:       8580435 bytes
+Requests per second:    8.36 [#/sec] (mean)
+Time per request:       478.597 [ms] (mean)
+Time per request:       119.649 [ms] (mean, across all concurrent requests)
+Transfer rate:          282.05 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       22   25  10.3     24     121
+Processing:   167  448  30.7    451     494
+Waiting:      141  423  30.6    426     470
+Total:        195  474  28.6    476     518
+
+Percentage of the requests served within a certain time (ms)
+  50%    476
+  66%    478
+  75%    480
+  80%    482
+  90%    486
+  95%    489
+  98%    501
+  99%    511
+ 100%    518 (longest request)
